@@ -1,18 +1,10 @@
 <?php
-class dbConnect {
-    private $hostname = "mysql";
-    private $username = "root";
-    private $password = "password";
-    private $database = "Ant_Store";
+require_once 'connect.php';
 
-    protected function connect()
+class AntsController extends dbConnect
+{
+    public function actionShow()
     {
-        $conn = new mysqli($this->hostname, $this->username, $this->password, $this->database);
-        return $conn;
-    }
-}
-class myQuery extends dbConnect {
-    public function getAllUsers() {
         $sql = "SELECT * FROM users";
         $result = $this->connect()->query($sql);
         $numRows = $result->num_rows;
@@ -44,12 +36,3 @@ class myQuery extends dbConnect {
         echo '</table>';
     }
 }
-//
-$query = new myQuery;
-$query->getAllUsers();
-echo
-'<html>
-<form action="index.php" method="post">
-    <input type="submit" value="Вернуться">
-</form>
-</html>';

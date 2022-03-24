@@ -1,11 +1,10 @@
 <?php
-// BEGIN (write your solution here)
-$age1 = 23;
-$age2 = 12;
-function getAgeDifference($age1, $age2)
-{
-    $difference = abs($age1 - $age2);
-    return "The age difference is $difference";
+function func($arg) {
+    $result = 0;
+    for($i=0; $i<$arg; $i++) {
+        $result = $result +$i;
+        echo "$result <br>";
+    }
+    return $result;
 }
-print_r (getAgeDifference($age1, $age2));
-// END
+echo func(5);
