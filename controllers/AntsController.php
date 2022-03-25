@@ -3,8 +3,10 @@ require_once 'connect.php';
 
 class AntsController extends dbConnect
 {
-    public function actionShow()
-    {
+    public function actionAdd() {
+        echo 'add';
+    }
+    public function actionShow() {
         $sql = "SELECT * FROM users";
         $result = $this->connect()->query($sql);
         $numRows = $result->num_rows;
