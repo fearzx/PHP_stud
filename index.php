@@ -16,16 +16,15 @@
 <form action="show" method="post">
     <input type="submit" value="Показать Муравьишек">
 </form>
-<form action="index.php" method="post">
+<form action="index" method="post">
         <input type="submit" value="Home">
 </form>
 </body>
 </html>
 
+//Подключаем роутер
 <?php
-require_once 'controllers/connect.php';
 require_once 'Router/router.php';
-require_once 'ants/view.php';
 
 $router = new Router();
 $router->run();

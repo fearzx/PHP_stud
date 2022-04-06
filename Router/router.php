@@ -10,10 +10,9 @@ class Router
 
     public function run()
     {
-        $uri = $this->getURI();
-
+        $uri = $this->getURI(); //данные из адресной строки
         $controllerName = 'AntsController';
-        $actionName = 'action'.ucfirst($uri);
+        $actionName = 'action'.ucfirst($uri); //добавляем action к адресу
         include_once ('controllers/'.$controllerName.'.php');
         $controllerObject = new $controllerName;
         $result = $controllerObject->$actionName();

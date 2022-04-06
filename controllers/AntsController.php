@@ -1,17 +1,24 @@
 <?php
-require_once 'connect.php';
+include 'connect.php';
 
 class AntsController extends dbConnect
 {
     public function actionAdd() {
-        echo 'add';
+        if (empty($_POST['username']) or (empty($_POST['email']))) exit("Поле 'Имя' и 'email' не заполнены");
+        else {
+            $queryAdd = "INSERT INTO `Ant_Store`.`users` (`username`, `email`) VALUES ('{$_POST['username']}', '{$_POST['email']}');";
+            $this->connect()->query($queryAdd);
+        }
+    }
+    public function actionIndex() {
+        return;
     }
     public function actionShow() {
-        $sql = "SELECT * FROM users";
-        $result = $this->connect()->query($sql);
-        $numRows = $result->num_rows;
+        $queryShow = "SELECT * FROM users";
+        $resultShow = $this->connect()->query($queryShow);
+        $numRows = $resultShow->num_rows;
         if ($numRows > 0) {
-            while ($row = $result->fetch_assoc()) {
+            while ($row = $resultShow->fetch_assoc()) {
                 $data[] = $row;
             }
         }
