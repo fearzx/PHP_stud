@@ -1,4 +1,5 @@
 <?php
+
 class Router
 {
     private function getURI()
@@ -10,11 +11,11 @@ class Router
 
     public function run()
     {
-        $uri = $this->getURI(); //данные из адресной строки
+        $uri            = $this->getURI(); //данные из адресной строки
         $controllerName = 'AntsController';
-        $actionName = 'action'.ucfirst($uri); //добавляем action к адресу
-        include_once ('controllers/'.$controllerName.'.php');
+        $actionName     = 'action' . ucfirst($uri); //добавляем action к адресу
+        include_once('controllers/' . $controllerName . '.php');
         $controllerObject = new $controllerName;
-        $result = $controllerObject->$actionName();
-        }
+        $result           = $controllerObject->$actionName();
+    }
 }
