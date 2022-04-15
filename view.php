@@ -14,7 +14,7 @@
     <input type="submit" value="Добавить">
 </form>
 <form action="connect.php" method="post">
-    <input type="submit" value="Показать Муравьишек">
+    <input type="submit" value="Показать Муравьишекв">
 </form>
 </body>
 </html>
